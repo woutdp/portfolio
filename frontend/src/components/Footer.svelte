@@ -44,6 +44,6 @@
     </ul>
     <p>
         © { currentYear } Made by Wout De Puysseleir
-        with&nbsp;&lt;3,&nbsp;<a rel="noopener" target="_blank" href="https://svelte.dev/">Svelte</a>&nbsp;&&nbsp;<a rel="noopener" target="_blank" href="https://sapper.svelte.dev/">Sapper</a>&nbsp;-&nbsp;<a rel="noopener" target="_blank" href="https://github.com/woutdp/portfolio">Source Code</a>
+        with&nbsp;&lt;3,&nbsp;<a rel="noopener" target="_blank" href="https://svelte.dev/">Svelte</a>&nbsp;&&nbsp;<a rel="noopener" target="_blank" href="https://sapper.svelte.dev/">Sapper</a>&nbsp;-&nbsp;<a rel="noopener" target="_blank" href="https://github.com/woutdp/wout.space">Source Code</a>
     </p>
 </footer>
