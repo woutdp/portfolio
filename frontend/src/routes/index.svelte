@@ -31,7 +31,7 @@
         <a rel="noopener" target="_blank" href="mailto:contact@wout.space"><span class="icon"><Fa icon={faEnvelope}/></span> Contact Me</a>
     </div>
 </section>
-<section class="section yellow">
+<section class="section yellow" id="about">
     <div class="container">
         <AnchorTitle anchor="about">About</AnchorTitle>
         <hr>
@@ -52,7 +52,7 @@
         <p>Not sure my skills are aligned with your software stack? Check out the <a href="#technologies">technologies</a> I've worked with.</p>
     </div>
 </section>
-<section class="section">
+<section class="section" id="technologies">
     <div class="container">
         <AnchorTitle anchor="technologies">Technologies</AnchorTitle>
         <hr>
