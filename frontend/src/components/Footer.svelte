@@ -17,8 +17,9 @@
         padding: 80px 20px;
         font-size 0.8em
 
-        +mobile()
-            flex-direction: column
+        +below(700px)
+            .icon
+                font-size 1.7em
 
     ul
         display: flex
@@ -45,10 +46,10 @@
 
 <footer>
     <ul>
-        <li><a rel="noopener" target="_blank" href="https://github.com/woutdp/wout.space"><Fa icon={faCode} size="1.5x"/></a></li>
-        <li><a rel="noopener" target="_blank" href="https://github.com/woutdp"><Fa icon={faGithub} size="1.5x"/></a></li>
-        <li><a rel="noopener" target="_blank" href="https://www.linkedin.com/in/woutdp/"><Fa icon={faLinkedin} size="1.5x"/></a></li>
-        <li><a rel="noopener" target="_blank" href="mailto:contact@wout.space"><Fa icon={faEnvelope} size="1.5x"/></a></li>
+        <li class="icon"><a rel="noopener" target="_blank" href="https://github.com/woutdp/wout.space"><Fa icon={faCode} size="1.5x"/></a></li>
+        <li class="icon"><a rel="noopener" target="_blank" href="https://github.com/woutdp"><Fa icon={faGithub} size="1.5x"/></a></li>
+        <li class="icon"><a rel="noopener" target="_blank" href="https://www.linkedin.com/in/woutdp/"><Fa icon={faLinkedin} size="1.5x"/></a></li>
+        <li class="icon"><a rel="noopener" target="_blank" href="mailto:contact@wout.space"><Fa icon={faEnvelope} size="1.5x"/></a></li>
     </ul>
     <p>© { currentYear } - Wout De Puysseleir</p>
 </footer>
