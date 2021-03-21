@@ -135,7 +135,6 @@
                 box-shadow 8px 8px 0 darken(@background-color, 20%)
                 line-height 1em
                 text-transform uppercase
-                transition-duration 1000ms
 
                 .icon
                     margin-right 8px
