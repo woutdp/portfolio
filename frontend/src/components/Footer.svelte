@@ -18,6 +18,8 @@
         font-size 0.8em
 
         +below(700px)
+            padding: 20px 20px;
+
             .icon
                 font-size 1.7em
 
