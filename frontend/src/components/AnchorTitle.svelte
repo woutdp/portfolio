@@ -8,15 +8,15 @@
     @import '../styles/variables'
 
     .anchor
-        color: yellow
+        color yellow
 
     a
-        margin: 0 0 0.5em 0
-        font-weight: 400
-        line-height: 1.2
-        text-transform: capitalize
-        font-size: 2em
+        margin 0 0 0.5em 0
+        line-height 1.2
+        text-transform capitalize
+        font-size 2em
         text-decoration none
+        font-weight 800
 
         &:hover
             text-decoration underline
