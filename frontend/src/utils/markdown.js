@@ -7,6 +7,7 @@ const readingTime = require('reading-time');
 
 // Support JSX syntax highlighting
 require('prismjs/components/prism-jsx.min');
+require('prismjs/components/prism-python.min')
 
 const EXCERPT_SEPARATOR = '<!-- more -->';
 const renderer = new marked.Renderer();

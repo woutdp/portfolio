@@ -1,19 +1,19 @@
 @import './variables'
 
 html
-    height: 100%
+    height 100%
 
 body
-    height: 100%
-    margin: 0
-    font-family: Roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif
-    font-size: 20px
-    line-height: 1.5
-    background-color: background
-    color: foreground
+    height 100%
+    margin 0
+    font-family Roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif
+    font-size 20px
+    line-height 1.5
+    background-color background
+    color foreground
 
     +mobile()
-        font-size: 16px;
+        font-size 16px
 
 h1, h2, h3, h4, h5, h6
     margin 0 0 0.5em 0
@@ -23,38 +23,29 @@ h1, h2, h3, h4, h5, h6
     text-decoration-thickness 10%
 
 h1
-    font-size: 2em
-    color: yellow
+    font-size 2em
+    color yellow
 
 a
-    color: cyan-bright
+    color cyan-bright
     text-decoration-thickness 10%
 
 hr
-    background-color: tint(background, 5%)
-    border: none
-    display: block
-    height: 2px
-    margin: 1.5rem 0
-
-code
-    font-family: menlo, inconsolata, monospace
-    font-size: calc(1em - 2px)
-    color: shade(foreground, 10%)
-    background-color: black
-    padding: 0.2em 0.4em
-    border-radius: 2px
-    white-space: nowrap
+    background-color tint(background, 5%)
+    border none
+    display block
+    height 2px
+    margin 1.5rem 0
 
 .center
-    display: flex;
-    justify-content: center
-    align-items: center
-    flex-direction: column
+    display flex
+    justify-content center
+    align-items center
+    flex-direction column
 
 .full-page
-    height: calc(100vh - 40px)
-    padding: 20px
+    height calc(100vh - 40px)
+    padding 20px
 
 .section
     background-color background
@@ -66,7 +57,7 @@ code
         a
             color lighten(yellow-bright, 20%)
         .anchor
-            color: black
+            color black
         code
             color black
             background-color yellow-bright
@@ -74,26 +65,43 @@ code
             background-color yellow-bright
 
 .container
-    margin: 0 auto
+    margin 0 auto
 
     +above(1100px)
-        min-width: 1000px
-        width: 1000px
+        min-width 1000px
+        width 1000px
 
     +above(1200px)
-        min-width: 1100px
-        width: 1100px
+        min-width 1100px
+        width 1100px
 
     +above(1300px)
-        min-width: 1200px
-        width: 1200px
+        min-width 1200px
+        width 1200px
 
     +above(1400px)
-        min-width: 1300px
-        width: 1300px
+        min-width 1300px
+        width 1300px
 
     &.blog
-        max-width 500px
+        width = 600px
+        max-width width
+
+        +above(1100px)
+            min-width width
+            width = width
+
+        +above(1200px)
+            min-width width
+            width = width
+
+        +above(1300px)
+            min-width width
+            width = width
+
+        +above(1400px)
+            min-width width
+            width = width
 
 .text-align-center
     text-align center
@@ -103,4 +111,4 @@ code
     font-size 0.7em
 
 #sapper
-    height: 100%
+    height 100%

@@ -1,0 +1,235 @@
+@import "variables.styl"
+
+default =
+	font-family Consolas Monaco "Andale Mono" monospace
+	text-align left
+	white-space pre
+	word-spacing normal
+	word-break normal
+	word-wrap normal
+	hyphens none
+	color inherit
+	text-shadow none
+	font-size 0.9em
+	line-height 1.3em
+	padding 0
+
+	-moz-tab-size 4
+	-o-tab-size 4
+	tab-size 4
+
+	-webkit-hyphens none
+	-moz-hyphens none
+	-ms-hyphens none
+	hyphens none
+
+selection =
+	color #fff
+	background: #f05e23;
+
+codePre = 'code, pre'
+selectionSelectors = '&::-moz-selection, & ::-moz-selection, &::selection, & ::selection'
+{codePre}
+	&[class*="language-"]
+		{default}
+		{selectionSelectors}
+			{selection}
+
+pre
+	&[class*="language-"]
+		background-color black
+		border-radius 5px
+		color foreground
+		margin 1em 0
+		overflow auto
+		padding 1.25em 1.25em
+		position relative
+		box-shadow 8px 8px 0 darken(@background-color, 20%)
+		border 1px dashed white
+
+	& > code
+		&[class*="language-"]
+			background none
+
+code
+	font-family Consolas Monaco "Andale Mono" monospace
+	font-size calc(1em - 2px)
+	background-color black
+	color shade(foreground, 10%)
+	padding 0.2em 0.4em
+	border-radius 2px
+	white-space nowrap
+
+//.token
+//	&.atrule
+//		color #c792ea
+//
+//	&.attr-name
+//		color #ffcb6b
+//
+//	&.attr-value
+//		color #c3e88d
+//
+//	&.attribute
+//		color #c3e88d
+//
+//	&.boolean
+//		color #c792ea
+//
+//	&.builtin
+//		color #ffcb6b
+//
+//	&.cdata
+//		color #80cbc4
+//
+//	&.char
+//		color #80cbc4
+//
+//	&.class
+//		color #ffcb6b
+//
+//	&.class-name
+//		color #f2ff00
+//
+//	&.color
+//		color #f2ff00
+//
+//	&.comment
+//		color #546e7a
+//
+//	&.constant
+//		color #c792ea
+//
+//	&.deleted
+//		color #f07178
+//
+//	&.doctype
+//		color #546e7a
+//
+//	&.entity
+//		color #f07178
+//
+//	&.function
+//		color #c792ea
+//
+//	&.hexcode
+//		color #f2ff00
+//
+//	&.id
+//		color #c792ea
+//		font-weight bold
+//
+//	&.important
+//		color #c792ea
+//		font-weight bold
+//
+//	&.inserted
+//		color #80cbc4
+//
+//	&.keyword
+//		color #c792ea
+//		font-style: italic
+//
+//	&.number
+//		color: #fd9170
+//
+//	&.operator
+//		color #89ddff
+//
+//	&.prolog
+//		color #546e7a
+//
+//	&.property
+//		color #80cbc4
+//
+//	&.pseudo-class
+//		color #c3e88d
+//
+//	&.pseudo-element
+//		color #c3e88d
+//
+//	&.punctuation
+//		color #89ddff
+//
+//	&.regex
+//		color #f2ff00
+//
+//	&.selector
+//		color #f07178
+//
+//	&.string
+//		color #c3e88d
+//
+//	&.symbol
+//		color #c792ea
+//
+//	&.tag
+//		color #f07178
+//
+//	&.unit
+//		color #f07178
+//
+//	&.url
+//		color #fd9170
+//
+//	&.variable
+//		color #f07178
+
+
+.token.comment,
+.token.prolog,
+.token.cdata
+	color grey
+
+.token.delimiter,
+.token.boolean,
+.token.keyword,
+.token.selector,
+.token.important,
+.token.atrule,
+.token.property,
+.token.constant,
+.token.variable
+	color red-bright
+
+.token.operator,
+.token.punctuation,
+.token.attr-name,
+.token.attr-value,
+.token.attr-value .punctuation
+	color white
+
+.token.tag,
+.token.tag .punctuation,
+.token.doctype,
+.token.builtin
+.token.function
+	color yellow-bright
+
+.token.entity,
+.token.number,
+.token.symbol
+	color magenta-bright
+
+.token.string,
+.token.char
+	color green-bright
+
+.token.url
+	color green-bright
+	text-decoration underline
+
+.token.regex
+	background green-bright
+
+.token.inserted
+	background white
+
+.token.deleted
+	background red-bright
+
+.token.bold
+	font-weight bold
+
+.token.italic
+	font-style italic

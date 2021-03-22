@@ -4,17 +4,18 @@
 
 <style global lang="stylus">
     @import '../styles/global'
+    @import '../styles/highlight'
 
     .grid-container
-        min-height: 100%
-        display: grid
-        grid-template-rows: 1fr auto;
+        min-height 100%
+        display grid
+        grid-template-rows 1fr auto
         grid-template-areas:
             'main' \
             'footer'
 
     main
-        grid-area: main
+        grid-area main
 </style>
 
 <div class="grid-container">

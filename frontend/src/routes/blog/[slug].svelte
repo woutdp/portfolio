@@ -64,7 +64,7 @@
     <p>{post.printDate} ~ {post.printReadingTime}</p>
     <h1>{post.title}</h1>
 </header>
-<div class="container">
+<div class="container blog">
     <article class="content">
         {@html post.html}
     </article>
