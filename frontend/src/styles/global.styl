@@ -104,18 +104,21 @@ hr
                     margin 10px 0
                     li
                         max-width 600px
+                .pre-container
+                    display flex
+                    align-items center
+                    position relative
+                    width calc(100vw - 20px)
+                    left 50%
+                    right 50%
+                    margin-left calc(-50vw + 10px)
+                    margin-right calc(-50vw + 100px)
+                    +above(700px)
+                        width calc(100vw - 100px)
+                        margin-left calc(-50vw + 50px)
+                        margin-right calc(-50vw + 50px)
                 pre
-                    width 80vw
-                    +above(640px)
-                        width 80vw
-                        align-items center
-                        position: relative
-                        left 50%
-                        right 50%
-                        //margin-left auto
-                        //margin-right auto
-                        margin-left -40vw
-                        margin-right -40vw
+                    margin 1em auto
 
 .text-align-center
     text-align center

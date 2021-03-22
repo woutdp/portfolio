@@ -43,10 +43,13 @@ pre
 		color foreground
 		margin 1em 0
 		overflow auto
-		padding 1.25em 1.25em
+		padding 0.75em 0.75em
+		white-space pre-wrap
 		position relative
 		box-shadow 8px 8px 0 darken(@background-color, 20%)
 		border 1px dashed white
+		+above(600px)
+			padding 1.25em 1.25em
 
 	& > code
 		&[class*="language-"]

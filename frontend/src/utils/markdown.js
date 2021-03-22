@@ -36,7 +36,7 @@ renderer.link = (href, title, text) => {
 renderer.code = (code, language) => {
   const parser = prism.languages[language] || prism.languages.html;
   const highlighted = prism.highlight(code, parser, language);
-  return `<pre class="language-${language}"><code class="language-${language}">${highlighted}</code></pre>`;
+  return `<div class="pre-container"><pre class="language-${language}"><code class="language-${language}">${highlighted}</code></pre></div>`;
 };
 
 marked.setOptions({ renderer });
