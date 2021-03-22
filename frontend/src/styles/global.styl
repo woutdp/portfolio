@@ -93,26 +93,29 @@ hr
             flex-direction column
             align-items center
 
-            max-width = 600px
             article
                 display flex
                 flex-direction column
-                align-items center
+                align-items flex-start
+                max-width 600px
                 p
-                    max-width max-width
-                    width max-width
                     margin 10px 0
                 ul
-                    max-width max-width
-                    width max-width
                     margin 10px 0
                     li
-                        max-width max-width
-                        width max-width
-
+                        max-width 600px
                 pre
-                    max-width 100%
-                    width 100%
+                    width 80vw
+                    +above(640px)
+                        width 80vw
+                        align-items center
+                        position: relative
+                        left 50%
+                        right 50%
+                        //margin-left auto
+                        //margin-right auto
+                        margin-left -40vw
+                        margin-right -40vw
 
 .text-align-center
     text-align center

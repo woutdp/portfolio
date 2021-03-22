@@ -31,6 +31,8 @@ selectionSelectors = '&::-moz-selection, & ::-moz-selection, &::selection, & ::s
 {codePre}
 	&[class*="language-"]
 		{default}
+		+above(600px)
+			white-space pre-wrap
 		{selectionSelectors}
 			{selection}
 
