@@ -41,7 +41,8 @@
     <h2>Full-Stack Web&nbsp;Developer</h2>
     <div class="navigation">
         <a href="#about">About</a>
-        <a rel="noopener" target="_blank" href="mailto:contact@wout.space"><span class="icon"><Fa icon={faEnvelope}/></span> Contact Me</a>
+        <a sapper:prefetch href="/blog">Blog</a>
+        <a rel="noopener" target="_blank" href="mailto:contact@wout.space" class="contact"><span class="icon"><Fa icon={faEnvelope}/></span> Contact Me</a>
     </div>
 </section>
 <section class="section yellow" id="about">
@@ -136,7 +137,7 @@
         .navigation
             display flex
             margin-top 30px
-            font-weight: 600;
+            font-weight 600
 
             a
                 text-decoration none
@@ -148,6 +149,11 @@
                 box-shadow 8px 8px 0 darken(@background-color, 20%)
                 line-height 1em
                 text-transform uppercase
+
+                &.contact
+                    color yellow-bright
+                    &:hover
+                        color lighten(@color, 20%)
 
                 .icon
                     margin-right 8px
