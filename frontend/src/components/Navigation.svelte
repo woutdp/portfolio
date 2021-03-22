@@ -1,5 +1,5 @@
 <script>
-    export let segment;
+    export let segment
 </script>
 
 <style lang="stylus">
@@ -10,7 +10,7 @@
 
     ul
         display: flex
-        justify-content: space-between
+        //justify-content: space-between
         margin: 0
         padding: 0
         text-align: center
@@ -39,11 +39,7 @@
 
 <nav>
     <ul>
-        <li><a class='{segment === undefined ? "selected" : ""}' href='.'>home</a></li>
-        <li><a class='{segment === "about" ? "selected" : ""}' href='about'>about</a></li>
-
-        <!-- for the blog link, we're using rel=prefetch so that Sapper prefetches
-             the blog data when we hover over the link or tap it on a touchscreen -->
-        <li><a rel=prefetch class='{segment === "blog" ? "selected" : ""}' href='blog'>blog</a></li>
+        <li><a sapper:prefetch href='/'>home</a></li>
+        <li><a sapper:prefetch href='/blog'>blog</a></li>
     </ul>
 </nav>

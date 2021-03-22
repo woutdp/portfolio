@@ -5,9 +5,8 @@ const matter = require('gray-matter');
 const formatDate = require('date-fns/format');
 const readingTime = require('reading-time');
 
-// Support JSX syntax highlighting
-require('prismjs/components/prism-jsx.min');
 require('prismjs/components/prism-python.min')
+require('prism-svelte')
 
 const EXCERPT_SEPARATOR = '<!-- more -->';
 const renderer = new marked.Renderer();
@@ -44,7 +43,7 @@ export default () => ({
 
     const fileName = path.basename(id);
     const { data, content: rawContent } = matter(md);
-    const { title, date } = data;
+    const { title, date, draft, tags } = data;
     const slug = fileName.split('.')[0];
     let content = rawContent;
     let excerpt = '';
@@ -68,6 +67,8 @@ export default () => ({
       excerpt,
       printDate,
       printReadingTime,
+      tags: tags || [],
+      draft: !!draft
     });
 
     return {

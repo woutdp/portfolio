@@ -1,3 +1,5 @@
+<!--Basket.Svelte-->
+
 <script>
     import AnchorTitle from '../components/AnchorTitle.svelte'
     import Fa from 'svelte-fa'

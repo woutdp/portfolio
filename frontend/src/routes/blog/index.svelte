@@ -7,16 +7,39 @@
 </script>
 
 <script>
+    import Navigation from "../../components/Navigation.svelte";
+
     export let posts
+    export let segment
 </script>
 
 <style lang="stylus">
-    .title
-        display flex
-        align-items center
+    @import '../../styles/variables.styl'
 
-    .post-item-date
+    h2
+        font-weight 900
+
+    .date
         text-transform uppercase
+        color grey
+        font-size 0.7em
+
+    p
+        margin 0
+
+    .tags
+        margin-top 5px
+
+        span
+            background-color blue-bright
+            border-radius 5px
+            color black
+            font-size 0.7em
+            font-weight 600
+            padding 3px 10px
+
+            &:not(:last-child)
+                margin-right 10px
 </style>
 
 <svelte:head>
@@ -36,19 +59,28 @@
     <meta property="twitter:description" content="Personal blog of Wout De Puysseleir">
 </svelte:head>
 
+<Navigation segment="{segment}"/>
+
 <section class="section">
     <div class="container blog">
-        <h1>Blog</h1>
         {#each posts as post, index}
-            <article>
-                <div class="title">
+            {#if !post.draft}
+                <article>
+                    {#if index > 0}
+                        <hr>
+                    {/if}
+                    <span class="date">{post.printDate} ~ {post.printReadingTime}</span>
                     <h2>
                         <a sapper:prefetch href='blog/{post.slug}'>{post.title}</a>
                     </h2>
-                    <span class="post-item-date"> — {post.printDate}</span>
-                </div>
-                <p>{post.excerpt}</p>
-            </article>
+                    <p>{post.excerpt}</p>
+                    <div class="tags">
+                        {#each post.tags as tag}
+                            <span>{tag}</span>
+                        {/each}
+                    </div>
+                </article>
+            {/if}
         {/each}
     </div>
 </section>

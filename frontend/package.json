@@ -19,6 +19,7 @@
     "gray-matter": "^4.0.2",
     "marked": "^2.0.1",
     "polka": "next",
+    "prism-svelte": "^0.4.7",
     "prismjs": "^1.23.0",
     "rupture": "^0.7.1",
     "sirv": "^0.4.0"

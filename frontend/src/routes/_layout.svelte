@@ -1,5 +1,7 @@
 <script>
     import Footer from '../components/Footer.svelte'
+
+    export let segment
 </script>
 
 <style global lang="stylus">
@@ -20,7 +22,7 @@
 
 <div class="grid-container">
     <main>
-        <slot/>
+        <slot segment="{segment}"/>
     </main>
 
     <Footer/>

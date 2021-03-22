@@ -47,6 +47,10 @@ hr
     height calc(100vh - 40px)
     padding 20px
 
+.article
+    background-color background
+    padding 3rem 1.5rem
+
 .section
     background-color background
     padding 3rem 1.5rem
@@ -84,24 +88,31 @@ hr
         width 1300px
 
     &.blog
-        width = 600px
-        max-width width
+        .post
+            display flex
+            flex-direction column
+            align-items center
 
-        +above(1100px)
-            min-width width
-            width = width
+            max-width = 600px
+            article
+                display flex
+                flex-direction column
+                align-items center
+                p
+                    max-width max-width
+                    width max-width
+                    margin 10px 0
+                ul
+                    max-width max-width
+                    width max-width
+                    margin 10px 0
+                    li
+                        max-width max-width
+                        width max-width
 
-        +above(1200px)
-            min-width width
-            width = width
-
-        +above(1300px)
-            min-width width
-            width = width
-
-        +above(1400px)
-            min-width width
-            width = width
+                pre
+                    max-width 100%
+                    width 100%
 
 .text-align-center
     text-align center

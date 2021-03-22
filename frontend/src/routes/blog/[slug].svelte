@@ -14,6 +14,7 @@
 </script>
 
 <script>
+    import Navigation from "../../components/Navigation.svelte";
     export let post
     export let path
 
@@ -22,17 +23,25 @@
 </script>
 
 <style lang="stylus">
+    @import "../../styles/variables.styl"
+
+    max-width = 600px
+
     header
         text-align center
+        margin-bottom 3em
+        max-width max-width
 
         h1
-            margin-bottom 0.7em
+            margin-bottom 0.2em
+            font-weight 900
 
         p
-            color #AAA
-            text-transform uppercase
-            font-family Rubik, sans-serif
+            color grey
             font-weight 600
+            font-size 0.9em
+            font-style italic
+            margin 0
 </style>
 
 <svelte:head>
@@ -60,13 +69,21 @@
     <meta name="twitter:data2" value={post.printReadingTime} />
 </svelte:head>
 
-<header>
-    <p>{post.printDate} ~ {post.printReadingTime}</p>
-    <h1>{post.title}</h1>
-</header>
-<div class="container blog">
-    <article class="content">
-        {@html post.html}
-    </article>
-    <hr />
-</div>
+<Navigation/>
+
+<section class="section">
+    <div class="container blog">
+        {#if !post.draft}
+            <div class="post">
+                <header>
+                    <h1>{post.title}</h1>
+                    <p>{post.printDate} ~ {post.printReadingTime}</p>
+                </header>
+                <article class=".article">
+                    {@html post.html}
+                </article>
+                <hr />
+            </div>
+        {/if}
+    </div>
+</section>
