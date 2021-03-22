@@ -136,7 +136,10 @@
 
         .navigation
             display flex
-            margin-top 30px
+            flex-wrap wrap
+            justify-content center
+            align-items center
+            margin-top 20px
             font-weight 600
 
             a
@@ -149,6 +152,8 @@
                 box-shadow 8px 8px 0 darken(@background-color, 20%)
                 line-height 1em
                 text-transform uppercase
+                white-space nowrap
+                margin 10px
 
                 &.contact
                     color yellow-bright
@@ -161,9 +166,6 @@
                 &:hover
                     border-style solid
                     color lighten(cyan-bright, 20%)
-
-                &:not(:last-child)
-                    margin-right 20px
 
     .technologies-container
         margin-top 40px
