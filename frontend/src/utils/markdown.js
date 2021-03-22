@@ -6,6 +6,10 @@ const formatDate = require('date-fns/format');
 const readingTime = require('reading-time');
 
 require('prismjs/components/prism-python.min')
+require('prismjs/components/prism-git.min')
+require('prismjs/components/prism-toml.min')
+require('prismjs/components/prism-ini.min')
+require('prismjs/components/prism-bash.min')
 require('prism-svelte')
 
 const EXCERPT_SEPARATOR = '<!-- more -->';
