@@ -1,6 +1,7 @@
 ---
 title: Hello World 👋
 date: "2019-06-11T08:38:00.000Z"
+draft: yes
 ---
 
 Every blog starts with a single post. This is yours. Make it great.
