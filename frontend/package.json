@@ -18,6 +18,7 @@
     "date-fns": "^2.19.0",
     "gray-matter": "^4.0.2",
     "marked": "^2.0.1",
+    "morgan": "^1.10.0",
     "polka": "next",
     "prism-svelte": "^0.4.7",
     "prismjs": "^1.23.0",
