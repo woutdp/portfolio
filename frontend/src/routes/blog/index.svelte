@@ -7,7 +7,7 @@
 </script>
 
 <script>
-    import Navigation from "../../components/Navigation.svelte";
+    import Navigation from '../../components/Navigation.svelte'
 
     export let posts
     export let segment

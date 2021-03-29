@@ -1,18 +1,18 @@
-import path from 'path';
-import resolve from '@rollup/plugin-node-resolve';
-import replace from '@rollup/plugin-replace';
-import commonjs from '@rollup/plugin-commonjs';
-import svelte from 'rollup-plugin-svelte';
-import babel from '@rollup/plugin-babel';
-import url from '@rollup/plugin-url';
-import { terser } from 'rollup-plugin-terser';
-import glob from 'rollup-plugin-glob';
-import config from 'sapper/config/rollup.js';
-import pkg from './package.json';
-import markdown from './src/utils/markdown.js';
+import path from 'path'
+import resolve from '@rollup/plugin-node-resolve'
+import replace from '@rollup/plugin-replace'
+import commonjs from '@rollup/plugin-commonjs'
+import svelte from 'rollup-plugin-svelte'
+import babel from '@rollup/plugin-babel'
+import url from '@rollup/plugin-url'
+import { terser } from 'rollup-plugin-terser'
+import glob from 'rollup-plugin-glob'
+import config from 'sapper/config/rollup.js'
+import pkg from './package.json'
+import markdown from './src/utils/markdown.js'
 
-import autoPreprocess from 'svelte-preprocess';
-import rupture from 'rupture';
+import autoPreprocess from 'svelte-preprocess'
+import rupture from 'rupture'
 
 const preprocess = autoPreprocess({
     stylus: {
@@ -20,14 +20,14 @@ const preprocess = autoPreprocess({
     }
 });
 
-const mode = process.env.NODE_ENV;
-const dev = mode === 'development';
-const legacy = !!process.env.SAPPER_LEGACY_BUILD;
+const mode = process.env.NODE_ENV
+const dev = mode === 'development'
+const legacy = !!process.env.SAPPER_LEGACY_BUILD
 
 const onwarn = (warning, onwarn) =>
 	(warning.code === 'MISSING_EXPORT' && /'preload'/.test(warning.message)) ||
 	(warning.code === 'CIRCULAR_DEPENDENCY' && /[/\\]@sapper[/\\]/.test(warning.message)) ||
-	onwarn(warning);
+	onwarn(warning)
 
 export default {
     client: {

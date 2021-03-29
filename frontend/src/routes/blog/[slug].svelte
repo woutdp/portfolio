@@ -14,12 +14,12 @@
 </script>
 
 <script>
-    import Navigation from "../../components/Navigation.svelte";
+    import Navigation from '../../components/Navigation.svelte'
     export let post
     export let path
 
     let url = `https://wout.space${path}`
-    let noNewlineExcerpt = post.excerpt.replace(/(\r\n|\n|\r)/gm, " ").trim()
+    let noNewlineExcerpt = post.excerpt.replace(/(\r\n|\n|\r)/gm, ' ').trim()
 </script>
 
 <svelte:head>
