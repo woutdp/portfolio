@@ -10,15 +10,12 @@ import glob from 'rollup-plugin-glob'
 import config from 'sapper/config/rollup.js'
 import pkg from './package.json'
 import markdown from './src/utils/markdown.js'
+import {mdsvex} from 'mdsvex'
 
 import autoPreprocess from 'svelte-preprocess'
 import rupture from 'rupture'
 
-const preprocess = autoPreprocess({
-    stylus: {
-        use: rupture()
-    }
-});
+const preprocess = [autoPreprocess({stylus: {use: rupture()}}), mdsvex()]
 
 const mode = process.env.NODE_ENV
 const dev = mode === 'development'
@@ -29,6 +26,7 @@ const onwarn = (warning, onwarn) =>
 	(warning.code === 'CIRCULAR_DEPENDENCY' && /[/\\]@sapper[/\\]/.test(warning.message)) ||
 	onwarn(warning)
 
+const extensions = ['.svelte', '.svx']
 export default {
     client: {
         input: config.client.input(),
@@ -41,6 +39,7 @@ export default {
             }),
             svelte({
                 preprocess,
+                extensions,
                 emitCss: true,
                 compilerOptions: {
                     dev,
@@ -59,7 +58,7 @@ export default {
             markdown(),
             glob(),
             legacy && babel({
-                extensions: ['.js', '.mjs', '.html', '.svelte'],
+                extensions: ['.js', '.mjs', '.html', ...extensions],
                 runtimeHelpers: true,
                 exclude: ['node_modules/@babel/**'],
                 presets: [
@@ -95,6 +94,7 @@ export default {
             }),
             svelte({
                 preprocess,
+                extensions,
                 compilerOptions: {
                     dev,
                     generate: 'ssr',
