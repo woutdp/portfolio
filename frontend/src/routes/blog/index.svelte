@@ -10,7 +10,6 @@
     import Navigation from '../../components/Navigation.svelte'
 
     export let posts
-    export let segment
 </script>
 
 <svelte:head>
@@ -30,7 +29,7 @@
     <meta property="twitter:description" content="Personal blog of Wout De Puysseleir">
 </svelte:head>
 
-<Navigation segment="{segment}"/>
+<Navigation/>
 
 <section class="section">
     <div class="container blog">
@@ -42,7 +41,7 @@
                     {/if}
                     <span class="date">{post.printDate} ~ {post.printReadingTime}</span>
                     <h2>
-                        <a sapper:prefetch href='blog/{post.slug}'>{post.title}</a>
+                        <a sapper:prefetch href='blog/post/{post.slug}'>{post.title}</a>
                     </h2>
                     <p>{post.excerpt}</p>
                     <div class="tags">

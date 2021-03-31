@@ -1,13 +1,10 @@
 ---
 title: A better git log
-date: "2021-03-22T00:00:00.000Z"
+date: "2021-03-22T00:00:00"
 tags:
     - git
+excerpt: A more readable and concise way to display the git log.
 ---
-A more readable and concise way to display the git log.
-
-<!-- more -->
-
 The default `git log` is usually too verbose and long for my workflow.
 In most situations I just want to see the latest 10 commits with each commit on one line of output.
 
@@ -17,15 +14,14 @@ The following alias will just do that:
 ; ~/.gitconfig
 
 [alias]
-  slog = "!f() { \
-            git log \
-              -${1-10} \
-              --graph \
-              --abbrev-commit \
-              --decorate \
-              --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)'; \
+  slog = "!f() { \\
+            git log \\
+              -${1-10} \\
+              --graph \\
+              --abbrev-commit \\
+              --decorate \\
+              --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)'; \\
           }; f"
-
 ```
 
 Doing `git slog` returns the following

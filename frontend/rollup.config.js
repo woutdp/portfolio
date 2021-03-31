@@ -1,21 +1,56 @@
-import path from 'path'
-import resolve from '@rollup/plugin-node-resolve'
-import replace from '@rollup/plugin-replace'
-import commonjs from '@rollup/plugin-commonjs'
-import svelte from 'rollup-plugin-svelte'
+import pkg from './package.json'
+import autoPreprocess from 'svelte-preprocess'
 import babel from '@rollup/plugin-babel'
+import commonjs from '@rollup/plugin-commonjs'
+import config from 'sapper/config/rollup.js'
+import copy from 'rollup-plugin-copy'
+import dynamicImportVars from '@rollup/plugin-dynamic-import-vars'
+import path from 'path'
+import replace from '@rollup/plugin-replace'
+import resolve from '@rollup/plugin-node-resolve'
+import rupture from 'rupture'
+import svelte from 'rollup-plugin-svelte'
 import url from '@rollup/plugin-url'
 import { terser } from 'rollup-plugin-terser'
-import glob from 'rollup-plugin-glob'
-import config from 'sapper/config/rollup.js'
-import pkg from './package.json'
-import markdown from './src/utils/markdown.js'
-import {mdsvex} from 'mdsvex'
+import { mdsvex } from 'mdsvex'
+import Prism from 'prismjs'
+import escape from 'escape-html'
 
-import autoPreprocess from 'svelte-preprocess'
-import rupture from 'rupture'
+require('prismjs/components/prism-python.min')
+require('prismjs/components/prism-git.min')
+require('prismjs/components/prism-toml.min')
+require('prismjs/components/prism-ini.min')
+require('prismjs/components/prism-bash.min')
+require('prism-svelte')
 
-const preprocess = [autoPreprocess({stylus: {use: rupture()}}), mdsvex()]
+
+const escape_svelty = (str) =>
+    str
+        .replace(/[{}`]/g, (c) => ({ '{': '&#123;', '}': '&#125;', '`': '&#96;' }[c]))
+        .replace(/\\([trn])/g, '&#92;$1')
+
+function highlighter(code, lang) {
+    if (lang && Prism.languages[lang]) {
+        const parsed = Prism.highlight(code, Prism.languages[lang], lang)
+        const langTag = 'language-' + lang
+        const highlighted = escape_svelty(parsed)
+        return `<Components.pre c=${langTag}>{@html \`<code class="language-${lang}">${highlighted}</code>\`}</Components.pre>`
+    } else {
+        const highlighted = escape_svelty(escape(code))
+        return `<Components.pre>{@html \`<code class="language-${lang}">${highlighted}</code>\`}</Components.pre>`
+    }
+}
+
+const preprocess = [
+    autoPreprocess({
+        stylus: { use: rupture() }
+    }),
+    mdsvex({
+		extension: '.md',
+		layout: { blog: 'src/layouts/blog.svelte' },
+        highlight: { highlighter }
+	})
+]
 
 const mode = process.env.NODE_ENV
 const dev = mode === 'development'
@@ -26,7 +61,8 @@ const onwarn = (warning, onwarn) =>
 	(warning.code === 'CIRCULAR_DEPENDENCY' && /[/\\]@sapper[/\\]/.test(warning.message)) ||
 	onwarn(warning)
 
-const extensions = ['.svelte', '.svx']
+const dynamicImportVarsOptions = {include: [ `src/routes/**/*.svelte` ]}
+const extensions = ['.svelte', '.md']
 export default {
     client: {
         input: config.client.input(),
@@ -55,8 +91,12 @@ export default {
                 dedupe: ['svelte']
             }),
             commonjs(),
-            markdown(),
-            glob(),
+            dynamicImportVars(dynamicImportVarsOptions),
+            copy({
+				targets: [
+					{ src: 'src/**/images/*.*', dest: 'static/images' }
+				]
+			}),
             legacy && babel({
                 extensions: ['.js', '.mjs', '.html', ...extensions],
                 runtimeHelpers: true,
@@ -110,11 +150,16 @@ export default {
                 dedupe: ['svelte']
             }),
             commonjs(),
-            markdown(),
-            glob(),
+            dynamicImportVars(dynamicImportVarsOptions),
+            copy({
+				targets: [
+					{ src: 'src/**/_images/*.*', dest: 'static/images' }
+				]
+			})
         ],
         external: Object.keys(pkg.dependencies).concat(require('module').builtinModules),
         preserveEntrySignatures: 'strict',
+
         onwarn,
     },
 };
