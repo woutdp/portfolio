@@ -23,12 +23,16 @@ h1, h2, h3, h4, h5, h6
     text-decoration-thickness 10%
 
 h1
-    font-size 2em
+    font-size 3em
     color yellow
 
 a
     color cyan-bright
     text-decoration-thickness 10%
+    text-decoration-line none
+    &:hover
+        text-decoration-thickness 10%
+        text-decoration-line underline
 
 hr
     background-color tint(background, 5%)
@@ -105,10 +109,14 @@ hr
                 flex-direction column
                 align-items flex-start
                 max-width 600px
+                font-family arial
+                line-height 1.6em
                 p
-                    margin 10px 0
+                    margin 0
+                    margin-bottom 10px
+                    padding 10px 0
                 ul
-                    margin 10px 0
+                    margin 15px 0
                     li
                         max-width 600px
                 .pre-container
@@ -126,6 +134,9 @@ hr
                         margin-right calc(-50vw + 50px)
                 pre
                     margin 1em auto
+                h1, h2
+                    margin 1.5em 0 0.5em 0
+                    font-weight 900
 
         header
             text-align center
